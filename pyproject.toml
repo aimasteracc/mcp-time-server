@@ -1,10 +1,77 @@
 [project]
-name = "mcp-time"
-version = "0.1.0"
-description = "Add your description here"
+name = "mcp-time-server"
+version = "1.0.0"
+description = "Professional timezone-aware time service for Model Context Protocol"
 readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "AI Assistant", email = "ai@example.com" }
+]
+keywords = ["mcp", "time", "timezone", "server", "api"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Networking :: Time Synchronization",
+]
 requires-python = ">=3.12"
 dependencies = [
     "mcp[cli]>=1.9.4",
     "pytz>=2025.2",
 ]
+
+[project.urls]
+Homepage = "https://github.com/your-username/mcp-time-server"
+Repository = "https://github.com/your-username/mcp-time-server.git"
+Issues = "https://github.com/your-username/mcp-time-server/issues"
+Documentation = "https://github.com/your-username/mcp-time-server#readme"
+
+[project.scripts]
+mcp-time-server = "get_time:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
