@@ -5,7 +5,7 @@ description = "Professional timezone-aware time service for Model Context Protoc
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "AI Assistant", email = "ai@example.com" }
+    { name = "aimasteracc", email = "aimasteracc@gmail.com" }
 ]
 keywords = ["mcp", "time", "timezone", "server", "api"]
 classifiers = [

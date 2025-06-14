@@ -103,13 +103,13 @@ Get server metadata and capabilities.
 ## 🏗️ Architecture
 
 ```
-mcp-time-server/
+./
 ├── get_time.py          # Main server implementation
 ├── pyproject.toml       # Project configuration
-├── README.md           # Documentation
-├── .gitignore          # Git ignore rules
-├── .python-version     # Python version specification
-└── uv.lock            # Dependency lock file
+├── README.md            # Documentation
+├── .gitignore           # Git ignore rules
+├── .python-version      # Python version specification
+├── uv.lock              # Dependency lock file
 ```
 
 ## 🔧 Development
