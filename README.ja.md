@@ -3,17 +3,21 @@
 
 # 🕐 MCPタイムサーバー
 
-プロフェッショナルなタイムゾーン対応の時刻サービス（Model Context Protocol対応）。全世界のタイムゾーンに対応し、詳細な時刻情報を提供します。
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io/)
+
+Model Context Protocol (MCP) 向けに構築された、プロフェッショナルかつ本番運用可能なタイムゾーン対応時刻サービスです。全世界のタイムゾーンに対応し、包括的な時刻情報を提供します。
 
 ## ✨ 特徴
 
 - 🌍 **グローバルタイムゾーン対応** - 世界中の任意のタイムゾーンの時刻情報を取得
 - 📊 **豊富な時刻データ** - フォーマット済み時刻、ISO形式、タイムスタンプなど
 - 🔍 **タイムゾーン検索** - リージョンでフィルタ可能
-- 📝 **詳細なロギング** - プロフェッショナルなログ出力
-- ⚡ **非同期対応** - async/awaitによる高パフォーマンス
-- 🛡️ **堅牢なエラーハンドリング**
-- 🔧 **環境変数による柔軟な設定**
+- 📝 **詳細なロギング** - プロフェッショナルな監視・デバッグ用ログ
+- ⚡ **非同期パフォーマンス** - async/awaitによる最適化
+- 🛡️ **堅牢なエラーハンドリング** - 詳細なエラーメッセージ
+- 🔧 **環境設定** - 環境変数を使用した柔軟な設定
 
 ## 🚀 クイックスタート
 
@@ -24,22 +28,26 @@
 git clone https://github.com/your-username/mcp-time-server.git
 cd mcp-time-server
 
-# 依存パッケージをuvでインストール（推奨）
+# uvで依存パッケージをインストール（推奨）
 uv sync
 
 # またはpipで
 pip install -e .
 ```
 
-### サーバ起動
+### サーバの起動
 
 ```bash
+# MCPサーバを起動
 python get_time.py
-# または
+
+# またはインストール済みスクリプトで
 mcp-time-server
 ```
 
 ### 設定
+
+環境変数で希望のタイムゾーンを設定できます：
 
 ```bash
 export LOCAL_TIMEZONE="Asia/Shanghai"
@@ -49,7 +57,8 @@ python get_time.py
 ## 🛠️ 利用可能なツール
 
 ### `get_current_time`
-任意のタイムゾーンの詳細な時刻情報（JSON形式）を取得します。
+
+任意のタイムゾーンの詳細な時刻情報を取得します。
 
 **パラメータ:**
 - `timezone` (任意): 対象タイムゾーンID（例: 'UTC', 'Asia/Shanghai'）
@@ -67,10 +76,11 @@ python get_time.py
 ```
 
 ### `list_available_timezones`
-利用可能なタイムゾーンを、リージョンでフィルタして取得できます。
+
+リージョン指定でフィルタ可能な、利用可能タイムゾーン一覧を取得します。
 
 **パラメータ:**
-- `region` (任意): リージョン（例: 'Asia', 'America', 'Europe'）
+- `region` (任意): リージョンでフィルタ（例: 'Asia', 'America', 'Europe'）
 
 **戻り値例:**
 ```json
@@ -78,6 +88,7 @@ python get_time.py
 ```
 
 ### `get_server_info`
+
 サーバのメタデータと機能情報を取得します。
 
 **戻り値例:**
@@ -92,7 +103,7 @@ python get_time.py
 }
 ```
 
-## 🏗️ ディレクトリ構成
+## 🏗️ アーキテクチャ
 
 ```
 ./
@@ -109,36 +120,49 @@ python get_time.py
 ## 🔧 開発
 
 ### コード品質
+
+本プロジェクトは最新のPython開発ツールを利用しています：
+
 - **Ruff** - 高速なPythonリンター・フォーマッター
 - **MyPy** - 静的型チェック
 - **Python 3.12+** - 最新Python機能
 
 ### テスト実行
+
 ```bash
+# コード整形
 ruff format .
+
+# コードチェック
 ruff check .
+
+# 型チェック
 mypy get_time.py
 ```
 
 ## 📋 必要要件
+
 - Python 3.12以上
 - MCPフレームワーク（mcp[cli] >= 1.9.4）
 - pytz（タイムゾーン用）
 
 ## 🤝 コントリビュート
+
 1. リポジトリをフォーク
-2. フィーチャーブランチ作成
-3. 変更をコミット
-4. プッシュ
-5. プルリクエスト作成
+2. フィーチャーブランチを作成（`git checkout -b feature/amazing-feature`）
+3. 変更をコミット（`git commit -m 'Add amazing feature'`）
+4. ブランチをプッシュ（`git push origin feature/amazing-feature`）
+5. プルリクエストを作成
 
 ## 📄 ライセンス
-MITライセンス
+
+本プロジェクトはMITライセンスです。詳細は [LICENSE](LICENSE) ファイルを参照してください。
 
 ## 🙏 謝辞
-- Model Context Protocol
-- pytz
-- AIアプリケーション向け信頼性の高い時刻サービスにインスパイア
+
+- [Model Context Protocol](https://modelcontextprotocol.io/) を利用
+- タイムゾーンデータは [pytz](https://pythonhosted.org/pytz/) 提供
+- 信頼性の高いAI向け時刻サービスのニーズから着想
 
 ---
 
